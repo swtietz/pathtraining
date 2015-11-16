@@ -18,12 +18,7 @@ import java.net.URL;
  */
 public class TileDownloader {
 
-    public static void main(String[] args) {
-        int zoom = 10;
-        double lat = 47.968056d;
-        double lon = 7.909167d;
-        System.out.println("http://tile.openstreetmap.org/" + getTileNumber(lat, lon, zoom) + ".png");
-    }
+
 
     public static Point getTileNumber(final double lat, final double lon, final int zoom) {
         int xtile = (int) Math.floor((lon + 180) / 360 * (1 << zoom));

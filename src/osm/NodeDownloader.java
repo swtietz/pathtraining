@@ -44,7 +44,7 @@ public class NodeDownloader {
     
     }
     
-    public void downloadPaths(){
+    public void downloadPaths(BoundingBox b){
 
         //schorndorf    String add = "http://open.mapquestapi.com/xapi/api/0.6/node[amenity=restaurant][bbox=9.4908142,48.7810801,9.5660019,48.8387351]";
         //String add = "http://open.mapquestapi.com/xapi/api/0.6/node[bbox=10.8439128,48.0755905,10.8877966,48.1005786]";
@@ -55,8 +55,10 @@ public class NodeDownloader {
        //String add = "http://www.informationfreeway.org/api/0.6/*[bbox=9.4908142,48.7810801,9.5660019,48.8387351]";
         
         //overpass als alternative 
-        String add = "http://www.overpass-api.de/api/xapi?way[bbox=10.8439128,48.0755905,10.8877966,48.1179][highway=*][@meta]";
-        
+        //String add = "http://www.overpass-api.de/api/xapi?way[highway=residential][bbox=10.8439128,48.0755905,10.8877966,48.1179][@meta]";
+        String add = "http://www.overpass-api.de/api/xapi?way[highway=residential|motorway|motorway_link|trunk|primary|secondary|tertiary][bbox="
+                +b.west+","+b.south+","+b.east+","+b.north+"][@meta]";
+        System.out.println("add: "+add);
         
         try {
             
@@ -66,7 +68,7 @@ public class NodeDownloader {
                     connection.getInputStream()));
             String inputLine;
             while ((inputLine = in.readLine()) != null) {
-                //System.out.println(inputLine);
+                System.out.println(inputLine);
                 handleInputLine(inputLine, in);
             }
             in.close();

@@ -39,7 +39,7 @@ public class MapLoader {
             json = (JSONObject) parser.parse(JSONString);
             
             //init nodes
-            JSONArray nodeArray = (JSONArray) json.get("nodeArray");
+            System.out.println("hier gehts");
             int w = new Integer(json.get("w").toString());
             int h = new Integer(json.get("h").toString());
             int xOffset = new Integer(json.get("xOffset").toString());
@@ -65,7 +65,7 @@ public class MapLoader {
         try{
             //BufferedReader br = new BufferedReader(new FileReader(fileAdr));
             InputStream input = getClass().getResourceAsStream(fileAdr);
-            BufferedReader br = new BufferedReader(new InputStreamReader(input));
+            BufferedReader br = new BufferedReader(new InputStreamReader(input,"UTF-8"));
             try {
                 StringBuilder sb = new StringBuilder();
                 String line = br.readLine();

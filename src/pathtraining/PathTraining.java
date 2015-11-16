@@ -13,9 +13,11 @@ import java.awt.event.ItemListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JOptionPane;
+import osm.BoundingBox;
 import osm.OSMInitialiser;
 import pathtraining.grapheditingtools.Graph;
 import pathtraining.grapheditingtools.EdgeAdder;
+import pathtraining.grapheditingtools.Node;
 import pathtraining.grapheditingtools.NodeAdder;
 import pathtraining.grapheditingtools.NodeMover;
 import pathtraining.graphics.Camera;
@@ -38,7 +40,7 @@ public class PathTraining {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String map = "test";
+        String map = "theim_roads";
         /**
         for(String arg : args){
             if(arg.equals("-edit")){
@@ -48,9 +50,8 @@ public class PathTraining {
             }
         }*/
         
-        
-        downloadMap("test");
-        
+        BoundingBox b = new BoundingBox(48.0744, 48.0473, 10.6703, 10.6249);
+        downloadMap("theim_roads",b, false);
         //new PathTraining(map);
     }
     
@@ -198,12 +199,12 @@ public class PathTraining {
     
     
     
-    public static MapWrapper downloadMap(String name){
+    public static MapWrapper downloadMap(String name, BoundingBox b, boolean downloadTiles){
         Graph graph = new Graph();
         NodeAdder nAdd = new NodeAdder(graph, null, null);
         EdgeAdder eAdd = new EdgeAdder(graph, null);
         OSMInitialiser osmIni = new OSMInitialiser();
-        osmIni .initOSMCanvas(name, nAdd, eAdd);
+        osmIni .initOSMCanvas(name, nAdd, eAdd, b, downloadTiles);
         
         MapSaver ms = new MapSaver(name, osmIni.w, osmIni.h, osmIni.xOffset, osmIni.yOffset);
         GraphSaver gs = new GraphSaver(graph, name);
@@ -211,4 +212,7 @@ public class PathTraining {
     }
     
     
+    public void focusOnNode(Node n){
+        camera.setPos(n.getxPos(), n.getyPos());
+    }
 }

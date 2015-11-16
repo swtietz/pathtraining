@@ -15,58 +15,50 @@ import javax.swing.KeyStroke;
  * @author Stephan
  */
 public class CameraController {
+
     private Camera camera;
 
     public CameraController(JPanel contentPane, Camera cameran) {
         this.camera = cameran;
-        
-        
-        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('w'),"up");
-        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('s'),"down");
-        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('a'),"left");
-        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('d'),"right");
-        
-        
+
+        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('w'), "up");
+        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('s'), "down");
+        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('a'), "left");
+        contentPane.getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke('d'), "right");
+
         contentPane.getActionMap().put("up",
-                             new AbstractAction() {
+                new AbstractAction() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                camera.moveUp();
-            }
-        });
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        camera.moveUp();
+                    }
+                });
         contentPane.getActionMap().put("down",
-                             new AbstractAction() {
+                new AbstractAction() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                camera.moveDown();
-            }
-        });
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        camera.moveDown();
+                    }
+                });
         contentPane.getActionMap().put("left",
-                             new AbstractAction() {
+                new AbstractAction() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                camera.moveLeft();
-            }
-        });
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        camera.moveLeft();
+                    }
+                });
         contentPane.getActionMap().put("right",
-                             new AbstractAction() {
+                new AbstractAction() {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                camera.moveRight();
-            }
-        });
-        
-        
-        
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        camera.moveRight();
+                    }
+                });
+
     }
 
-    
-
-    
-    
-    
 }

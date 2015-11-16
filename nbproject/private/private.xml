@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/Graph.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/Map.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/graphics/SpriteStore.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/grapheditingtools/NodeAdder.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/graphics/OSMMapRenderer.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/graphics/MapDrawable.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/OSMNode.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/Street.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/GraphSaver.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/DBKnoten.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/AutoResizeJPanel.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/grapheditingtools/EdgeAdder.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/NodeDB.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/graphics/RenderMaster.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/BoundingBox.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/MapLoader.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/NodeDownloader.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/GraphLoader.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/TileDownloader.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/GraphNode.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/graphics/Sprite.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/MapWrapper.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/BuildingNode.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/OSMInitialiser.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/PathTraining.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/MapSaver.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/pathtraining/graphics/MapRenderer.java</file>
+            <file>file:/C:/Users/Steve/Documents/Uni/pathtraining/pathtraining/src/osm/OSMCanvas.java</file>
+        </group>
+    </open-files>
+</project-private>

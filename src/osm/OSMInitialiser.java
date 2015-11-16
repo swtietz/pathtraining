@@ -17,7 +17,6 @@ import pathtraining.MapSaver;
 import pathtraining.grapheditingtools.EdgeAdder;
 import pathtraining.grapheditingtools.Node;
 import pathtraining.grapheditingtools.NodeAdder;
-import sun.org.mozilla.javascript.internal.ScriptRuntime;
 
 /**
  *
@@ -30,9 +29,9 @@ public class OSMInitialiser {
         public int yOffset ;
         public int w,h;
         
-    public void initOSMCanvas(String name, NodeAdder nodeAdder, EdgeAdder edgeAdder) {
+    public void initOSMCanvas(String name, NodeAdder nodeAdder, EdgeAdder edgeAdder, BoundingBox b, boolean downloadTiles) {
         NodeDownloader n = new NodeDownloader();
-        n.downloadPaths();
+        n.downloadPaths(b);
         NodeDB<GraphNode> nodes = n.getPathNodes();
         JMapViewer m = new JMapViewer();
         JFrame f = new JFrame();
@@ -81,14 +80,15 @@ public class OSMInitialiser {
             }
 
         }
-        
-        //downloadTiles(name,minLat, maxLat, minLon, maxLon);
+        if(downloadTiles){
+            downloadTiles(name,minLat, maxLat, minLon, maxLon);
+        }
         Point minTile = TileDownloader.getTileNumber(minLat, minLon, 17);
         Point maxTile = TileDownloader.getTileNumber(maxLat, maxLon, 17);
         double lat = BoundingBox.tile2lat(maxTile.y, 17);
         double lon = BoundingBox.tile2lon(minTile.x, 17);
         Point mapEdge = m.getMapPosition(lat, lon,false);
-        xOffset = mapEdge.x - (int)minX;
+        xOffset = mapEdge.x -(int)minX;
         yOffset = mapEdge.y - (int)minY;
         w = Math.abs(minTile.x-maxTile.x);
         h = Math.abs(minTile.y-maxTile.y);

@@ -9,12 +9,23 @@ package osm;
  *
  * @author Steve
  */
-class BoundingBox {
+public class BoundingBox {
 
     double north;
     double south;
     double east;
     double west;
+
+    
+    public BoundingBox(){}
+    public BoundingBox(double north, double south, double east, double west) {
+        this.north = north;
+        this.south = south;
+        this.east = east;
+        this.west = west;
+    }
+    
+    
 
     BoundingBox tile2boundingBox(final int x, final int y, final int zoom) {
         BoundingBox bb = new BoundingBox();

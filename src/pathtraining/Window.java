@@ -41,10 +41,11 @@ public class Window {
     public Window(boolean isEditMode) {
         frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(800,600));
+        frame.setPreferredSize(new Dimension(1600,1200));
         
         JPanel contentPane = (JPanel)frame.getContentPane();
         contentPane.setLayout(new BorderLayout());
+        contentPane.setPreferredSize(new Dimension(800, 600));
         
         canvasPanel = new JPanel(new BorderLayout());
         contentPane.add(canvasPanel,BorderLayout.CENTER);

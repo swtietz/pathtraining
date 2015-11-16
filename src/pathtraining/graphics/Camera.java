@@ -44,25 +44,31 @@ public class Camera {
     
     
     public void moveUp(){
-        yPos-=10;
+        yPos-=20;
     }
     
     public void moveDown(){
-        yPos+=10;
+        yPos+=20;
     }
     
     public void moveLeft(){
-        xPos-=10;
+        xPos-=20;
     }
     
     public void moveRight(){
-        xPos+=10;
+        xPos+=20;
     }
     
     public void setSize(Dimension dim){
         width = dim.width;
         height = dim.height;
         System.out.println("cam resized");
+    }
+    
+    public void setPos(int xPos, int yPos){
+        
+        this.xPos = xPos-width/2;
+        this.yPos = yPos-height/2;
     }
     
 }
