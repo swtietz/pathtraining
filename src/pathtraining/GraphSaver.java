@@ -30,7 +30,7 @@ import pathtraining.grapheditingtools.Node;
 public class GraphSaver {
     JSONObject json;
 
-    public GraphSaver(Graph graph) {
+    public GraphSaver(Graph graph, String name) {
         json = new JSONObject();
        
         JSONArray nodes = new JSONArray();
@@ -76,7 +76,7 @@ public class GraphSaver {
 
         BufferedWriter writer = null;
         try {
-            writer = new BufferedWriter(new FileWriter("campus.graph"));
+            writer = new BufferedWriter(new FileWriter("src/maps/"+name+".graph"));
             writer.write(json.toJSONString());
 
         } catch (IOException e) {

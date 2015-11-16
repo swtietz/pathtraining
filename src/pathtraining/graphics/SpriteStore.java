@@ -34,6 +34,7 @@ public class SpriteStore {
 
     public boolean loadSprite(String ref, int xOffset, int yOffset) {
         BufferedImage sourceImage = null;
+        System.out.println("ref:"+ref);
         try {
             
             sourceImage = ImageIO.read(getClass().getResource(ref));  

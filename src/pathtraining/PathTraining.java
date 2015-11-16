@@ -8,11 +8,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import javax.swing.JOptionPane;
+import osm.OSMInitialiser;
 import pathtraining.grapheditingtools.Graph;
 import pathtraining.grapheditingtools.EdgeAdder;
 import pathtraining.grapheditingtools.NodeAdder;
@@ -37,7 +38,7 @@ public class PathTraining {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String map = "campus_groß";
+        String map = "test";
         /**
         for(String arg : args){
             if(arg.equals("-edit")){
@@ -46,7 +47,11 @@ public class PathTraining {
                 map = arg.substring(4);
             }
         }*/
-        new PathTraining(map);
+        
+        
+        downloadMap("test");
+        
+        //new PathTraining(map);
     }
     
     
@@ -67,7 +72,7 @@ public class PathTraining {
         this(mapName, false);
     }
     
-    public PathTraining(String mapName, boolean edit){
+    public PathTraining(final String mapName, boolean edit){
     
         isEditMode = edit;
 
@@ -78,18 +83,20 @@ public class PathTraining {
         
         
         graph = new Graph();
-        Map map = new Map(graph, SpriteStore.get().getSprite("/maps/"+mapName+".png"), camera);
+        Map map = new Map(graph, SpriteStore.get().getSprite("/maps/campus_groß.png"), camera);
         
         
-        
-        render = new RenderMaster(camera, graph, map.getDrawable());
+
+        MapWrapper mw = new MapLoader().loadGraph("/maps/"+mapName+".map");
+        //MapWrapper mw = downloadMap(mapName);
+        render = new RenderMaster(camera, graph, map.getDrawable(),mapName,mw.w,mw.h,mw.xOffset,mw.yOffset);
         
         
         //create canvas
         canvas = new Canvas(render,camera, new pathtraining.graphics.MouseMotionListener(map, window.getInfoPanel(),render.getGraphR()));
         canvas.setDoubleBuffered(true);
         window.setCanvas(canvas);
-        canvas.start();
+        
         
         
         //create tools
@@ -130,7 +137,7 @@ public class PathTraining {
         window.getSaveGraphButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new GraphSaver(graph);
+                new GraphSaver(graph,mapName);
             }
         });
         
@@ -166,6 +173,7 @@ public class PathTraining {
         GraphLoader loader = new GraphLoader();
         loader.loadGraph("/maps/"+mapName+".graph", graph, nAdd, eAdd);
         
+        canvas.start();
     }
     
     public void setTool(MouseListener m) {
@@ -189,6 +197,18 @@ public class PathTraining {
     }
     
     
+    
+    public static MapWrapper downloadMap(String name){
+        Graph graph = new Graph();
+        NodeAdder nAdd = new NodeAdder(graph, null, null);
+        EdgeAdder eAdd = new EdgeAdder(graph, null);
+        OSMInitialiser osmIni = new OSMInitialiser();
+        osmIni .initOSMCanvas(name, nAdd, eAdd);
+        
+        MapSaver ms = new MapSaver(name, osmIni.w, osmIni.h, osmIni.xOffset, osmIni.yOffset);
+        GraphSaver gs = new GraphSaver(graph, name);
+        return new MapWrapper(osmIni.w, osmIni.h, osmIni.xOffset, osmIni.yOffset, name);
+    }
     
     
 }

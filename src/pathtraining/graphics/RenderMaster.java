@@ -28,6 +28,18 @@ public class RenderMaster {
     
     private Camera cam;
     
+    public RenderMaster(Camera cam, Graph g, MapDrawable map, String name,int w, int h, int xOffset, int yOffset) {
+        this.cam = cam;
+        
+        graphR = new GraphRenderer();
+        for(Node n : g.getNodes()){
+            graphR.addNode(n);
+        }
+        
+        mapR = new OSMMapRenderer(name,w, h,xOffset,yOffset);
+    }
+    
+    
     public RenderMaster(Camera cam, Graph g, MapDrawable map) {
         this.cam = cam;
         
@@ -38,7 +50,6 @@ public class RenderMaster {
         
         mapR = new MapRenderer(map);
     }
-
     
 
     

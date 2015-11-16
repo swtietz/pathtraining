@@ -28,14 +28,17 @@ public class NodeAdder implements MouseListener{
     
     
     
-    public void addNode(int xPos, int yPos){
+    public Node addNode(int xPos, int yPos){
         Node n = graph.createNode(xPos, yPos);
-        renderer.addNode(n);
+        if(renderer != null)
+            renderer.addNode(n);
+        return n;
     }
 
     public void addNode(int xPos, int yPos,int ID,  Color c ){
         Node n = graph.addNode(xPos, yPos, ID, c);
-        renderer.addNode(n);
+        if(renderer != null)
+            renderer.addNode(n);
     }
     
     @Override
