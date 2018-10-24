@@ -34,12 +34,15 @@ public class SpriteStore {
 
     public boolean loadSprite(String ref, int xOffset, int yOffset) {
         BufferedImage sourceImage = null;
-        //System.out.println("ref:"+ref);
+        System.out.println("ref:"+ref);
         try {
             
             sourceImage = ImageIO.read(getClass().getResource(ref));  
         } catch (IOException ex) {
             System.err.println("could not load image " + ref);
+        } catch (IllegalArgumentException ex){
+            System.err.println("could not load image " + ref);
+            ex.printStackTrace();
         }
         if (sourceImage == null) {
             return false;

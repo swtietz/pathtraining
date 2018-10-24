@@ -40,7 +40,7 @@ public class PathTraining {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String map = "theim_roads";
+        String map = "bfs_sample_map";
         /**
         for(String arg : args){
             if(arg.equals("-edit")){
@@ -50,9 +50,10 @@ public class PathTraining {
             }
         }*/
         
-        BoundingBox b = new BoundingBox(48.0744, 48.0473, 10.6703, 10.6249);
-        downloadMap("theim_roads",b, false);
-        //new PathTraining(map);
+        BoundingBox b = new BoundingBox(48.07435, 48.0473, 10.6703, 10.6449);
+        downloadMap(map,b, true);
+        new PathTraining(map);
+
     }
     
     
